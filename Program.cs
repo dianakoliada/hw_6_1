@@ -53,5 +53,65 @@ for (int i = 0; i < multiplicationTableArray.GetLength(0); i++)
 }
 */
 
+//----------------------------------------------------------------------------------------
+
+/*
+ 4. Створити двовимірний масив 5х5. 
+Заповнити його будь-якими числами. 
+Визначити та вивести на екран: 
+а) максимальний елемент масиву; 
+б) мінімальний елемент масиву; 
+в) координати мінімального елемента масиву. 
+г) координати максимального елемента масиву.
+ */
+
+int[,] array2 = new int [5, 5];
+var random2 = new Random();
+
+// filled the arr
+for (int i = 0; i < array2.GetLength(0); i++) {
+    for (int j = 0; j < array2.GetLength(1); j++)
+    {
+        array2[i, j] = random2.Next(-10, 35);
+        Console.Write(array2[i, j] + "\t");
+    }
+    Console.WriteLine();
+}
+
+// the max el + coordinates
+int maxEl = array2[0,0];
+int maxElRow = -1;
+int maxElCol = -1;
+
+for (int i = 0; i < array2.GetLength(0); i++)
+    for (int j = 0; j < array2.GetLength(1); j++) {
+        if (array2[i, j] > maxEl)
+        {
+            maxEl = array2[i, j];
+            maxElRow = i;
+            maxElCol = j;
+        }
+    }
+
+Console.WriteLine($"maxEl: {maxEl}, coordinates: {maxElRow}, {maxElCol}");
+
+// the min el + coordinates
+int minEl = array2[0,0];
+int minElRow = -1;
+int minElCol = -1;
+
+for (int i = 0; i < array2.GetLength(0); i++)
+{
+    for (int j = 0; j < array2.GetLength(1); j++)
+    {
+        if (array2[i, j] < minEl)
+        {
+            minEl = array2[i, j];
+            minElRow = i;
+            minElCol = j;
+        }
+    }
+}
 
 
+Console.WriteLine($"minEl: {minEl}, coordinates: {minElRow}, {minElCol}");
