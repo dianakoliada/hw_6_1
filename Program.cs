@@ -63,7 +63,6 @@ for (int i = 0; i < multiplicationTableArray.GetLength(0); i++)
 б) мінімальний елемент масиву; 
 в) координати мінімального елемента масиву. 
 г) координати максимального елемента масиву.
- */
 
 int[,] array2 = new int [5, 5];
 var random2 = new Random();
@@ -113,5 +112,39 @@ for (int i = 0; i < array2.GetLength(0); i++)
     }
 }
 
-
 Console.WriteLine($"minEl: {minEl}, coordinates: {minElRow}, {minElCol}");
+ */
+
+//----------------------------------------------------------------------------------------
+
+/*
+5. За допомогою enum створити програму, що буде запитувати у користувача кількість днів, 
+а потім рахувати який буде день через введену кількість, якщо рахувати від понеділка і виводити результат. 
+Наприклад: 
+Приклад 1: Вхідний параметр: 13 Очікуваний вивід: Sunday
+Приклад 2: Вхідний параметр: 3 Очікуваний вивід: Thursday
+ */
+
+int dayNumber = 0;
+bool isValidDay = false;
+
+do
+{
+    Console.WriteLine("Enter the day`s number:");
+    var input = Console.ReadLine();
+    isValidDay = int.TryParse(input, out dayNumber);
+
+} while (!isValidDay);
+
+weekDays day = (weekDays)(dayNumber % 7);
+Console.WriteLine(day);
+
+enum weekDays { 
+    Monday,
+    Tuesday,
+    Wednersday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday
+}
